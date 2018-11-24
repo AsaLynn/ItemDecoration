@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MyItemDecoration</string>
+    <string name="app_vertical_line">列表竖线</string>
+    <string name="app_horizontal_line">列表横线</string>
+    <string name="text_item">Fresco让你没有这些烦恼，它处理好每一帧并管理好你的内存</string>
+</resources>
