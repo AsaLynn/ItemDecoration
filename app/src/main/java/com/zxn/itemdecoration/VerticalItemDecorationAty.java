@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.zxn.itemdecoration.decoration.VerticalDecoration;
+import com.zxn.divider.VerticalDivider;
 
 import java.util.ArrayList;
 
@@ -30,8 +30,8 @@ public class VerticalItemDecorationAty extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rv.setLayoutManager(layoutManager);
-        //rv.addItemDecoration(new VerticalDecoration(this));
-        rv.addItemDecoration(new VerticalDecoration.Builder(this)
+        //rv.addItemDecoration(new VerticalDivider(this));
+        rv.addItemDecoration(new VerticalDivider.Builder(this)
                 .showLastDecoration(false)
                 .bgColor(R.color.colorPrimary)
                 .create());

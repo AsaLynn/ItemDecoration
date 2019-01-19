@@ -1,4 +1,4 @@
-package com.zxn.itemdecoration;
+package com.zxn.divider;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -36,7 +36,7 @@ public class CommonDivider extends Y_DividerItemDecoration {
         mBgColor = context.getResources()
                 .getColor(bgColoerId);
         mBgTransparent = context.getResources()
-                .getColor(R.color.transparent);
+                .getColor(android.R.color.transparent);
         mWidthDp = widthDp;
         mStartPaddingDp = startPaddingDp;
         mEndPaddingDp = endPaddingDp;

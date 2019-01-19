@@ -1,4 +1,4 @@
-package com.zxn.itemdecoration.decoration;
+package com.zxn.divider;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -8,13 +8,12 @@ import android.view.View;
 import com.yanyusong.y_divideritemdecoration.Y_Divider;
 import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
 import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
-import com.zxn.itemdecoration.R;
 
 /**
  * Rv单条竖线.
  * Created by zxn on 2018/11/24.
  */
-public class VerticalDecoration extends Y_DividerItemDecoration {
+public class VerticalDivider extends Y_DividerItemDecoration {
 
 
     private Context mContext;
@@ -26,7 +25,7 @@ public class VerticalDecoration extends Y_DividerItemDecoration {
     private RecyclerView mRecyclerView;
 
 
-    public VerticalDecoration(Context context) {
+    public VerticalDivider(Context context) {
         super(context);
         mContext = context;
         mBgColor = context.getResources()
@@ -81,8 +80,8 @@ public class VerticalDecoration extends Y_DividerItemDecoration {
             return this;
         }
 
-        public VerticalDecoration create() {
-            VerticalDecoration verticalDecoration = new VerticalDecoration(context);
+        public VerticalDivider create() {
+            VerticalDivider verticalDecoration = new VerticalDivider(context);
             verticalDecoration.mBgColor = bgColor;
             verticalDecoration.mWidthDp = widthDp;
             verticalDecoration.mShowLastDecoration = showLastDecoration;
