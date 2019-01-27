@@ -7,10 +7,12 @@ RecyclerView列表使用分割线.
 
 
 ## 纵向分割线
-![Image text](https://github.com/zhang721688/MyItemDecoration/blob/master/img/grid.png)
+![Image text](https://github.com/zhang721688/MyItemDecoration/blob/master/img/vertical.png)
+
 
 ## 格子列表分割线
-![Image text](https://github.com/zhang721688/MyItemDecoration/blob/master/img/vertical.png)
+![Image text](https://github.com/zhang721688/MyItemDecoration/blob/master/img/grid.png)
+
 
 # 添加依赖
 版本1.0.0
