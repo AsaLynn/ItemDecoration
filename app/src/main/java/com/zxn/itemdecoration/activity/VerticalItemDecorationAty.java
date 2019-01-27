@@ -1,11 +1,13 @@
-package com.zxn.itemdecoration;
+package com.zxn.itemdecoration.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.zxn.divider.VerticalDivider;
+import com.zxn.divider.ItemDivider;
+import com.zxn.itemdecoration.R;
+import com.zxn.itemdecoration.adapter.VerticalAdapter;
 
 import java.util.ArrayList;
 
@@ -31,10 +33,10 @@ public class VerticalItemDecorationAty extends AppCompatActivity {
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rv.setLayoutManager(layoutManager);
         //rv.addItemDecoration(new VerticalDivider(this));
-        rv.addItemDecoration(new VerticalDivider.Builder(this)
-                .showLastDecoration(false)
+        rv.addItemDecoration(new ItemDivider.Builder(this)
+                .showLastDiveder(false)
                 .bgColor(R.color.colorPrimary)
-                .create());
+                .createVertical());
         VerticalAdapter verticalAdapter = new VerticalAdapter();
         ArrayList<String> data = new ArrayList<>();
         data.add("https://3am-image.superwie.com/n_btc_a.png");

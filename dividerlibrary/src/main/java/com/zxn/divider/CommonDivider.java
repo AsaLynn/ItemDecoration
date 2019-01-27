@@ -7,34 +7,28 @@ import android.view.View;
 
 import com.yanyusong.y_divideritemdecoration.Y_Divider;
 import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
-import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 
 /**
  * 通用RecyclerView条目横线(纵向列表,单条目,底部横线)
  * 可设置线条宽度,颜色,距离左侧长度,距离右侧长度,控制最后的横线是否显示等等.
  * Created by zxn on 2018/10/29.
  */
-public class CommonDivider extends Y_DividerItemDecoration {
+public class CommonDivider extends ItemDivider {
 
-    private int mBgColor;
-    private float mWidthDp = 1, mStartPaddingDp, mEndPaddingDp;
     private RecyclerView mRecyclerView;
-    private boolean mShowLastDiveder;
     private int mBgTransparent;
 
-    public CommonDivider(Context context) {
+    protected CommonDivider(Context context) {
         super(context);
         mBgColor = context.getResources()
                 .getColor(R.color.c_f2f2f2);
     }
 
-    public CommonDivider(Context context, int bgColoerId, float widthDp, float startPaddingDp, float endPaddingDp, boolean showLastDiveder) {
+    protected CommonDivider(Context context, int bgColoerId, float widthDp, float startPaddingDp, float endPaddingDp, boolean showLastDiveder) {
         super(context);
-        if (bgColoerId == 0) {
-            bgColoerId = R.color.c_f2f2f2;
-        }
+        mBgColoerId = bgColoerId == 0 ? R.color.c_f2f2f2 : bgColoerId;
         mBgColor = context.getResources()
-                .getColor(bgColoerId);
+                .getColor(mBgColoerId);
         mBgTransparent = context.getResources()
                 .getColor(android.R.color.transparent);
         mWidthDp = widthDp;
@@ -51,6 +45,7 @@ public class CommonDivider extends Y_DividerItemDecoration {
                 .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
     }
 
+    @Deprecated
     public static class Builder {
         private int bgColorId;
         private float widthDp = 1, startPaddingDp, endPaddingDp;

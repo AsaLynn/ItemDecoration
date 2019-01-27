@@ -1,14 +1,15 @@
-package com.zxn.itemdecoration;
+package com.zxn.itemdecoration.adapter;
 
 import android.support.v7.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.zxn.itemdecoration.R;
 
 /**
  * Created by zxn on 2018/11/24.
  */
-class MyBaseQuickAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
+public class MyBaseQuickAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
     public MyBaseQuickAdapter() {
         super(R.layout.item_text);

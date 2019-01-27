@@ -1,4 +1,4 @@
-package com.zxn.itemdecoration;
+package com.zxn.itemdecoration.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.zxn.divider.CommonDivider;
+import com.zxn.divider.ItemDivider;
+import com.zxn.itemdecoration.R;
+import com.zxn.itemdecoration.adapter.MyBaseQuickAdapter;
 
 import java.util.ArrayList;
 
@@ -28,10 +31,10 @@ public class HorizontalItemDecorationAty extends AppCompatActivity {
 
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.addItemDecoration(new CommonDivider.Builder(this)
+        rv.addItemDecoration(new ItemDivider.Builder(this)
                 .bgColor(R.color.colorPrimaryDark)
                 .widthDp(20)
-                .create());
+                .createCommon());
         MyBaseQuickAdapter adapter = new MyBaseQuickAdapter();
         rv.setAdapter(adapter);
         ArrayList<String> data = new ArrayList<>();

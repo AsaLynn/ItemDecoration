@@ -7,25 +7,18 @@ import android.view.View;
 
 import com.yanyusong.y_divideritemdecoration.Y_Divider;
 import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
-import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 
 /**
  * Rv单条竖线.
  * Created by zxn on 2018/11/24.
  */
-public class VerticalDivider extends Y_DividerItemDecoration {
+public class VerticalDivider extends ItemDivider {
 
 
-    private Context mContext;
-    private int mBgColor;
-    private float mWidthDp;
-    private float mStartPaddingDp;
-    private float mEndPaddingDp;
-    private boolean mShowLastDecoration;
     private RecyclerView mRecyclerView;
 
 
-    public VerticalDivider(Context context) {
+    protected VerticalDivider(Context context) {
         super(context);
         mContext = context;
         mBgColor = context.getResources()
@@ -37,7 +30,7 @@ public class VerticalDivider extends Y_DividerItemDecoration {
     public Y_Divider getDivider(int itemPosition) {
         int lastItemPosition = mRecyclerView.getLayoutManager().getItemCount() - 1;
         float widthDp
-                = (lastItemPosition == itemPosition && !mShowLastDecoration)
+                = (lastItemPosition == itemPosition && !mShowLastDiveder)
                 ? 0 : mWidthDp;
         return new Y_DividerBuilder()
                 .setRightSideLine(true, mBgColor, widthDp, mStartPaddingDp, mEndPaddingDp)
@@ -53,6 +46,8 @@ public class VerticalDivider extends Y_DividerItemDecoration {
     //    public void showLastDecoration(boolean show) {
 //        this.showLastDecoration = show;
 //    }
+
+    @Deprecated
     public static class Builder {
         private Context context;
         private int bgColor;
@@ -84,7 +79,7 @@ public class VerticalDivider extends Y_DividerItemDecoration {
             VerticalDivider verticalDecoration = new VerticalDivider(context);
             verticalDecoration.mBgColor = bgColor;
             verticalDecoration.mWidthDp = widthDp;
-            verticalDecoration.mShowLastDecoration = showLastDecoration;
+            verticalDecoration.mShowLastDiveder = showLastDecoration;
             return verticalDecoration;
         }
     }

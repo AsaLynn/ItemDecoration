@@ -1,9 +1,11 @@
-package com.zxn.itemdecoration;
+package com.zxn.itemdecoration.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.zxn.itemdecoration.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_horizontal_line, R.id.btn_vertical_line})
+    @OnClick({R.id.btn_horizontal_line, R.id.btn_vertical_line, R.id.btn_grid_line})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_horizontal_line:
@@ -28,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_vertical_line:
                 startActivity(new Intent(this, VerticalItemDecorationAty.class));
+                break;
+            case R.id.btn_grid_line:
+                startActivity(new Intent(this, MultipleActivity.class));
                 break;
         }
     }
