@@ -18,23 +18,30 @@ public class CommonDivider extends ItemDivider {
     private RecyclerView mRecyclerView;
     private int mBgTransparent;
 
+
     protected CommonDivider(Context context) {
         super(context);
         mBgColor = context.getResources()
                 .getColor(R.color.c_f2f2f2);
     }
 
-    protected CommonDivider(Context context, int bgColoerId, float widthDp, float startPaddingDp, float endPaddingDp, boolean showLastDiveder) {
+    protected CommonDivider(Context context, int bgColorId, float widthDp, float startPaddingDp, float endPaddingDp, boolean showLastDiveder, boolean showFirstDiveder) {
         super(context);
-        mBgColoerId = bgColoerId == 0 ? R.color.c_f2f2f2 : bgColoerId;
         mBgColor = context.getResources()
-                .getColor(mBgColoerId);
+                .getColor(R.color.c_f2f2f2);
+
+        if (bgColorId == 0) {
+            bgColorId = R.color.c_f2f2f2;
+        }
+        mBgColor = context.getResources()
+                .getColor(bgColorId);
         mBgTransparent = context.getResources()
                 .getColor(android.R.color.transparent);
         mWidthDp = widthDp;
         mStartPaddingDp = startPaddingDp;
         mEndPaddingDp = endPaddingDp;
         mShowLastDiveder = showLastDiveder;
+        mShowFirstDiveder = showFirstDiveder;
     }
 
     @Override
@@ -51,6 +58,7 @@ public class CommonDivider extends ItemDivider {
         private float widthDp = 1, startPaddingDp, endPaddingDp;
         private Context context;
         private boolean showLastDiveder;
+        private boolean showFirstDiveder;
 
         public Builder(Context context) {
             this.context = context;
@@ -81,8 +89,13 @@ public class CommonDivider extends ItemDivider {
             return this;
         }
 
+        public Builder showFirstDiveder(boolean showFirstDiveder) {
+            this.showFirstDiveder = showFirstDiveder;
+            return this;
+        }
+
         public CommonDivider create() {
-            return new CommonDivider(context, bgColorId, widthDp, startPaddingDp, endPaddingDp, showLastDiveder);
+            return new CommonDivider(context, bgColorId, widthDp, startPaddingDp, endPaddingDp, showLastDiveder,showLastDiveder);
         }
     }
 

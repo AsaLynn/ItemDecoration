@@ -15,6 +15,7 @@ public abstract class ItemDivider extends Y_DividerItemDecoration {
     protected int mSpanCount;
     protected boolean mShowLastDiveder;
     protected int mBgColoerId;
+    protected boolean mShowFirstDiveder;
 
 
     protected ItemDivider(Context context) {
@@ -29,7 +30,8 @@ public abstract class ItemDivider extends Y_DividerItemDecoration {
         private int bgColorId;
         private float widthDp = 1, startPaddingDp, endPaddingDp;
         private Context context;
-        private boolean showLastDiveder;
+        private boolean showLastDiveder, showFirstDivider;
+        ;
         private int spanCount;
 
         public Builder(Context context) {
@@ -67,7 +69,7 @@ public abstract class ItemDivider extends Y_DividerItemDecoration {
         }
 
         public ItemDivider createCommon() {
-            return new CommonDivider(context, bgColorId, widthDp, startPaddingDp, endPaddingDp, showLastDiveder);
+            return new CommonDivider(context, bgColorId, widthDp, startPaddingDp, endPaddingDp, showLastDiveder, showFirstDivider);
         }
 
         public ItemDivider createVertical() {
