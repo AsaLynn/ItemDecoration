@@ -17,7 +17,7 @@ RecyclerView列表使用分割线.
 # 添加依赖
 版本1.0.0
 ```
-implementation 'com.zxn.divider:dividerlibrary:1.0.0'
+implementation 'com.zxn.divider:dividerlibrary:1.0.3'
 ```
 
 # 简单方式
