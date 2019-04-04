@@ -30,5 +30,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_grid_head_line" />
+    <Button
+        android:id="@+id/btn_grid_foot_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_grid_foot1_line" />
+
+    <Button
+        android:id="@+id/btn_grid_head_foot_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_grid_head_foot_line" />
 
 </LinearLayout>

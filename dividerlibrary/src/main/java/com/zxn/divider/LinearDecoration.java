@@ -10,17 +10,15 @@ import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
 
 /**
  * Rv单条竖线.
- * @Deprecated {@link LinearDecoration}
+ * Linear
  * Created by zxn on 2018/11/24.
  */
-@Deprecated
-public class VerticalDivider extends ItemDivider {
-
+public class LinearDecoration extends ItemDecoration {
 
     private RecyclerView mRecyclerView;
 
 
-    protected VerticalDivider(Context context) {
+    protected LinearDecoration(Context context) {
         super(context);
         mContext = context;
         mBgColor = context.getResources()
@@ -77,8 +75,8 @@ public class VerticalDivider extends ItemDivider {
             return this;
         }
 
-        public VerticalDivider create() {
-            VerticalDivider verticalDecoration = new VerticalDivider(context);
+        public LinearDecoration create() {
+            LinearDecoration verticalDecoration = new LinearDecoration(context);
             verticalDecoration.mBgColor = bgColor;
             verticalDecoration.mWidthDp = widthDp;
             verticalDecoration.mShowLastDiveder = showLastDecoration;

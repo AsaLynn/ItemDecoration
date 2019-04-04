@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.zxn.divider.GridDivider;
+import com.zxn.divider.ItemDecoration;
 import com.zxn.divider.ItemDivider;
 import com.zxn.itemdecoration.R;
 import com.zxn.itemdecoration.adapter.MultipleAdapter;
@@ -63,7 +64,7 @@ public class MultipleActivity extends AppCompatActivity {
         rvSkills.setLayoutManager(layoutManager);
         adapter = new MultipleAdapter();
         rvSkills.setAdapter(adapter);
-        ItemDivider divider = new ItemDivider.Builder(this)
+        ItemDecoration divider = new ItemDecoration.Builder(this)
                 .bgColor(R.color.c_ffffff)
                 .spanCount(layoutManager.getSpanCount())
                 .widthDp(5)
@@ -85,8 +86,9 @@ public class MultipleActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String result = response.body().string();
-                Type type = new TypeToken<ResultEntity<List<SearchEntity>>>() {}.getType();
-                final ResultEntity<List<SearchEntity >> entity = new Gson().fromJson(result, type);
+                Type type = new TypeToken<ResultEntity<List<SearchEntity>>>() {
+                }.getType();
+                final ResultEntity<List<SearchEntity>> entity = new Gson().fromJson(result, type);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

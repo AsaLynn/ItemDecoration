@@ -3,4 +3,6 @@
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_16">16dp</dimen>
     <dimen name="dp_5">5dp</dimen>
+    <dimen name="dp_210">210dp</dimen>
+    <dimen name="px28">28dp</dimen>
 </resources>

@@ -22,7 +22,12 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_horizontal_line, R.id.btn_vertical_line, R.id.btn_grid_line})
+    @OnClick({R.id.btn_horizontal_line, R.id.btn_vertical_line,
+            R.id.btn_grid_line,
+            R.id.btn_grid_head_line,
+            R.id.btn_grid_head_foot_line,
+            R.id.btn_grid_foot_line,
+    })
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_horizontal_line:
@@ -35,8 +40,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MultipleActivity.class));
                 break;
             case R.id.btn_grid_head_line:
-                //startActivity(new Intent(this, MultipleActivity.class));
+                startActivity(new Intent(this, GridHeadActivity.class));
                 break;
+            case R.id.btn_grid_foot_line:
+                startActivity(new Intent(this, GridFootActivity.class));
+                break;
+            case R.id.btn_grid_head_foot_line:
+                startActivity(new Intent(this, GridHeadFootActivity.class));
+                break;
+
         }
     }
 }

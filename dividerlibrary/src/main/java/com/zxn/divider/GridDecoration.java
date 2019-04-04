@@ -8,14 +8,12 @@ import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
 /**
  * RecyclerView均匀分隔的格子列表分割线.
  * ItemDecoration,GridDecoration
- * {@link GridDecoration}
  * Created by zxn on 2019/1/27.
  */
-@Deprecated
-public class GridDivider extends ItemDivider {
+public class GridDecoration extends ItemDecoration {
 
 
-    protected GridDivider(Context context) {
+    protected GridDecoration(Context context) {
         super(context);
     }
 

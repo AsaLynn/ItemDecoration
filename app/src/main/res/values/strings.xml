@@ -5,4 +5,11 @@
     <string name="text_item">Fresco让你没有这些烦恼，它处理好每一帧并管理好你的内存</string>
     <string name="app_grid_line">格子列表分隔线</string>
     <string name="app_grid_head_line">带头的格子列表分隔线</string>
+    <string name="text_home_order">text_home</string>
+    <string name="text_home_data_report">text_order</string>
+    <string name="text_home_add_card_manage">home_order</string>
+    <string name="text_home_transfer_into_account">transfer_into</string>
+    <string name="app_grid_head_foot_line">带头和脚的格子列表分隔线</string>
+    <string name="app_grid_foot1_line">带1脚的格子列表分隔线</string>
+    <string name="app_text_foot">因为爱所以爱,真情务必拿来感慨!</string>
 </resources>

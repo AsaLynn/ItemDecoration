@@ -13,6 +13,7 @@ import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
  * 可设置线条宽度,颜色,距离左侧长度,距离右侧长度,控制最后的横线是否显示等等.
  * Created by zxn on 2018/10/29.
  */
+@Deprecated
 public class CommonDivider extends ItemDivider {
 
     private RecyclerView mRecyclerView;

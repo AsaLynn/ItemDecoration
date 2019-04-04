@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zxn.itemdecoration">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -14,6 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.GridFootActivity"></activity>
+        <activity android:name=".activity.GridHeadFootActivity" />
+        <activity android:name=".activity.GridHeadActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +26,8 @@
         </activity>
         <activity android:name=".activity.HorizontalItemDecorationAty" />
         <activity android:name=".activity.VerticalItemDecorationAty" />
-        <activity android:name=".activity.GridItemDecorationAty"></activity>
-        <activity android:name=".activity.MultipleActivity"></activity>
+        <activity android:name=".activity.GridItemDecorationAty" />
+        <activity android:name=".activity.MultipleActivity" />
     </application>
 
 </manifest>
