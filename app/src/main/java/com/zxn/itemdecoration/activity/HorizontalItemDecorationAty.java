@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.zxn.divider.CommonDivider;
 import com.zxn.divider.ItemDivider;
+import com.zxn.divider.LinearDecoration;
 import com.zxn.itemdecoration.R;
 import com.zxn.itemdecoration.adapter.MyBaseQuickAdapter;
 
@@ -30,11 +31,14 @@ public class HorizontalItemDecorationAty extends AppCompatActivity {
         ButterKnife.bind(this);
 
         rv.setHasFixedSize(true);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.addItemDecoration(new ItemDivider.Builder(this)
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        //layoutManager.setOrientation(5);
+        rv.setLayoutManager(layoutManager);
+        rv.addItemDecoration(new LinearDecoration.Builder(this)
                 .bgColor(R.color.colorPrimaryDark)
                 .widthDp(20)
-                .createCommon());
+                .setOrientation(LinearDecoration.HORIZONTAL)
+                .createLinear());
         MyBaseQuickAdapter adapter = new MyBaseQuickAdapter();
         rv.setAdapter(adapter);
         ArrayList<String> data = new ArrayList<>();

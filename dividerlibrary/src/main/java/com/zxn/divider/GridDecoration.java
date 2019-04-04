@@ -7,10 +7,10 @@ import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
 
 /**
  * RecyclerView均匀分隔的格子列表分割线.
- * ItemDecoration,GridDecoration
+ * RvItemDecoration,GridDecoration
  * Created by zxn on 2019/1/27.
  */
-public class GridDecoration extends ItemDecoration {
+public class GridDecoration extends RvItemDecoration {
 
 
     protected GridDecoration(Context context) {
@@ -26,18 +26,18 @@ public class GridDecoration extends ItemDecoration {
 
         //每一列,第一行要显示顶部分隔线
         if (itemPosition < mSpanCount) {
-            builder.setTopSideLine(true, mBgColor, 6, 0, 0);
+            builder.setTopSideLine(true, mBgColor, mWidthDp, 0, 0);
         }
 
         //第一列条目显示每一个left,rignt和bottom(第1列的显示分隔线)
         if (itemPosition % mSpanCount == 0) {
-            builder.setLeftSideLine(true, mBgColor, 6, 0, 0)
-                    .setRightSideLine(true, mBgColor, 6, 0, 0)
-                    .setBottomSideLine(true, mBgColor, 6, 0, 0);
+            builder.setLeftSideLine(true, mBgColor, mWidthDp, 0, 0)
+                    .setRightSideLine(true, mBgColor, mWidthDp, 0, 0)
+                    .setBottomSideLine(true, mBgColor, mWidthDp, 0, 0);
         } else {
             //每一行每一个rignt和bottom(2--->5列的显示分隔线.)
-            builder.setRightSideLine(true, mBgColor, 6, 0, 0)
-                    .setBottomSideLine(true, mBgColor, 6, 0, 0);
+            builder.setRightSideLine(true, mBgColor, mWidthDp, 0, 0)
+                    .setBottomSideLine(true, mBgColor, mWidthDp, 0, 0);
 
         }
 

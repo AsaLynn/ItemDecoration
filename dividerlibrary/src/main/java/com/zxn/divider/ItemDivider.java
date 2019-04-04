@@ -8,8 +8,8 @@ import android.view.View;
 import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 
 /**
- * ItemDecoration
- * @Deprecated {@link ItemDecoration}
+ * RvItemDecoration
+ * @Deprecated {@link RvItemDecoration}
  * Created by zxn on 2019/1/27.
  */
 @Deprecated

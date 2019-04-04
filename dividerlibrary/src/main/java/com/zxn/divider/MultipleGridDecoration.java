@@ -13,7 +13,7 @@ import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
  * Multiple
  * Created by zxn on 2019/4/4.
  */
-public class MultipleGridDecoration extends ItemDecoration {
+public class MultipleGridDecoration extends RvItemDecoration {
 
     //protected boolean mIsHaveTopSideLine;
 
@@ -31,15 +31,15 @@ public class MultipleGridDecoration extends ItemDecoration {
             if (itemPosition % mSpanCount == 3) {
                 if (itemPosition != 0) {
                     //头视图条目不显示分割线.
-                    builder.setTopSideLine(true, mBgColor, 6, 0, 0)
-                            .setBottomSideLine(true, mBgColor, 6, 0, 0);
+                    builder.setTopSideLine(true, mBgColor, mWidthDp, 0, 0)
+                            .setBottomSideLine(true, mBgColor, mWidthDp, 0, 0);
                 }
             } else {
                 if (itemPosition != getItemCount() - 1) {//itemPosition==4--->(foot)-->getItemCount==5.
                     //无头视图条目不显示分割线 && 脚视图条目不显示分割线
-                    builder.setTopSideLine(true, mBgColor, 6, 0, 0)
-                            .setRightSideLine(true, mBgColor, 6, 0, 0)
-                            .setBottomSideLine(true, mBgColor, 6, 0, 0);
+                    builder.setTopSideLine(true, mBgColor, mWidthDp, 0, 0)
+                            .setRightSideLine(true, mBgColor, mWidthDp, 0, 0)
+                            .setBottomSideLine(true, mBgColor, mWidthDp, 0, 0);
                 }
             }
 
@@ -68,42 +68,4 @@ public class MultipleGridDecoration extends ItemDecoration {
         return builder.create();
     }
 
-    private int getItemCount() {
-        if (mRecyclerView == null) return 0;
-        if (mRecyclerView.getLayoutManager() == null) return 0;
-        return mRecyclerView.getLayoutManager().getItemCount();
-        //return mRecyclerView.getLayoutManager() == null ? 0 : mRecyclerView.getLayoutManager().getItemCount();
-    }
-
 }
-
-
-////----
-////第4列条目显示每一个top,bottom(第4列的显示分隔线)
-//        if (itemPosition % mSpanCount == 0) {
-//                if (itemPosition != 0) {
-//                //头视图条目不显示分割线.
-//                builder.setTopSideLine(true, mBgColor, 6, 0, 0)
-//                .setBottomSideLine(true, mBgColor, 6, 0, 0);
-//                }
-//                } else {
-//                //第1列条目显示每一个top,rignt,bottom(第1列的显示分隔线)
-//                //第2列条目显示每一个top,rignt,bottom(第2列的显示分隔线)
-//                //第3列条目显示每一个top,rignt,bottom(第3列的显示分隔线)
-//                if (mHeadCount == 0) {
-//                if (itemPosition != getItemCount() - 1) {//itemPosition==4--->(foot)-->getItemCount==5.
-//                //头视图条目不显示分割线 && 脚视图条目不显示分割线
-//                builder.setTopSideLine(true, mBgColor, 6, 0, 0)
-//                .setRightSideLine(true, mBgColor, 6, 0, 0)
-//                .setBottomSideLine(true, mBgColor, 6, 0, 0);
-//                }
-//                } else {
-//                if (itemPosition != 0 && itemPosition != getItemCount() - 1) {//itemPosition==5--->(foot)-->getItemCount==6
-//                //头视图条目不显示分割线 && 脚视图条目不显示分割线
-//                builder.setTopSideLine(true, mBgColor, 6, 0, 0)
-//                .setRightSideLine(true, mBgColor, 6, 0, 0)
-//                .setBottomSideLine(true, mBgColor, 6, 0, 0);
-//                }
-//                }
-//
-//                }

@@ -8,8 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 
-import com.zxn.divider.ItemDecoration;
-import com.zxn.divider.ItemDivider;
+import com.zxn.divider.RvItemDecoration;
 import com.zxn.itemdecoration.R;
 import com.zxn.itemdecoration.adapter.HomeOptionsAdatper;
 import com.zxn.itemdecoration.entity.HomeOptionsEntity;
@@ -50,7 +49,7 @@ public class GridHeadActivity extends AppCompatActivity {
         GridLayoutManager layoutManager = new GridLayoutManager(this, 4);
         rvHomeOptions.setLayoutManager(layoutManager);
         rvHomeOptions.setHasFixedSize(true);
-        rvHomeOptions.addItemDecoration(new ItemDecoration.Builder(this)
+        rvHomeOptions.addItemDecoration(new RvItemDecoration.Builder(this)
                 .spanCount(layoutManager.getSpanCount())
                 .bgColor(R.color.colorAccent)
                 .widthDp(1f)

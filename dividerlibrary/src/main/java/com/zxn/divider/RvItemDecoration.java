@@ -2,6 +2,7 @@ package com.zxn.divider;
 
 import android.content.Context;
 import android.graphics.Rect;
+import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -10,7 +11,8 @@ import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 /**
  * Created by zxn on 2019/4/4.
  */
-public abstract class ItemDecoration extends Y_DividerItemDecoration {
+public abstract class RvItemDecoration extends Y_DividerItemDecoration {
+
 
     protected int mBgColor;
     protected float mWidthDp = 1, mStartPaddingDp, mEndPaddingDp;
@@ -22,16 +24,26 @@ public abstract class ItemDecoration extends Y_DividerItemDecoration {
     protected RecyclerView mRecyclerView;
     protected int mHeadCount;
     protected int mFootCount;
+    protected int mOrientation;
 
-    protected ItemDecoration(Context context) {
+
+    protected RvItemDecoration(Context context) {
         super(context);
         mContext = context;
+        mBgColor = context.getResources()
+                .getColor(R.color.c_f2f2f2);
     }
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
         mRecyclerView = parent;
+    }
+
+    protected int getItemCount() {
+        if (mRecyclerView == null) return 0;
+        if (mRecyclerView.getLayoutManager() == null) return 0;
+        return mRecyclerView.getLayoutManager().getItemCount();
     }
 
     public static class Builder {
@@ -43,61 +55,72 @@ public abstract class ItemDecoration extends Y_DividerItemDecoration {
         private int spanCount;
         private int headCount;
         private int footCount;
+        private int orientation;
 
         public Builder(Context context) {
             this.context = context;
         }
 
-        public ItemDecoration.Builder footCount(int footCount) {
+        public Builder setOrientation(@LinearDecoration.OrientationMode int orientation) {
+            if (orientation != this.orientation) {
+                this.orientation = orientation;
+            }
+            return this;
+        }
+
+        public RvItemDecoration.Builder footCount(int footCount) {
             this.footCount = footCount;
             return this;
         }
 
-        public ItemDecoration.Builder headCount(int headCount) {
+        public RvItemDecoration.Builder headCount(int headCount) {
             this.headCount = headCount;
             return this;
         }
 
-        public ItemDecoration.Builder bgColor(int bgColorId) {
+        public RvItemDecoration.Builder bgColor(int bgColorId) {
             this.bgColorId = bgColorId;
             return this;
         }
 
-        public ItemDecoration.Builder widthDp(float mWidthDp) {
+        public RvItemDecoration.Builder widthDp(float mWidthDp) {
             this.widthDp = mWidthDp;
             return this;
         }
 
-        public ItemDecoration.Builder startPaddingDp(float mStartPaddingDp) {
+        public RvItemDecoration.Builder startPaddingDp(float mStartPaddingDp) {
             this.startPaddingDp = mStartPaddingDp;
             return this;
         }
 
-        public ItemDecoration.Builder endPaddingDp(float mEndPaddingDp) {
+        public RvItemDecoration.Builder endPaddingDp(float mEndPaddingDp) {
             this.endPaddingDp = mEndPaddingDp;
             return this;
         }
 
-        public ItemDecoration.Builder showLastDiveder(boolean showLastDiveder) {
+        public RvItemDecoration.Builder showLastDiveder(boolean showLastDiveder) {
             this.showLastDiveder = showLastDiveder;
             return this;
         }
 
-        public ItemDecoration.Builder spanCount(int spanCount) {
+        public RvItemDecoration.Builder spanCount(int spanCount) {
             this.spanCount = spanCount;
             return this;
         }
 
         //LinearLayoutManager
-        public ItemDecoration createLinear() {
+        public RvItemDecoration createLinear() {
             LinearDecoration decoration = new LinearDecoration(context);
             decoration.mBgColoerId = bgColorId;
             decoration.mWidthDp = widthDp;
             decoration.mShowLastDiveder = showLastDiveder;
+            decoration.mStartPaddingDp = startPaddingDp;
+            decoration.mEndPaddingDp = endPaddingDp;
+            decoration.mOrientation = orientation;
             return decoration;
         }
 
-        public ItemDecoration createGrid() {
+        public RvItemDecoration createGrid() {
             GridDecoration decoration = new GridDecoration(context);
             decoration.mBgColoerId = bgColorId;
             decoration.mWidthDp = widthDp;
@@ -105,7 +128,7 @@ public abstract class ItemDecoration extends Y_DividerItemDecoration {
             return decoration;
         }
 
-        public ItemDecoration createHeadGrid() {
+        public RvItemDecoration createHeadGrid() {
             HeadGridDecoration decoration = new HeadGridDecoration(context);
             decoration.mBgColoerId = bgColorId;
             decoration.mWidthDp = widthDp;
@@ -115,7 +138,7 @@ public abstract class ItemDecoration extends Y_DividerItemDecoration {
         }
 
         //FootGridDecoration
-        public ItemDecoration createFootGrid() {
+        public RvItemDecoration createFootGrid() {
             FootGridDecoration decoration = new FootGridDecoration(context);
             decoration.mBgColoerId = bgColorId;
             decoration.mWidthDp = widthDp;
@@ -126,7 +149,7 @@ public abstract class ItemDecoration extends Y_DividerItemDecoration {
         }
 
         //HFGridDecoration
-        public ItemDecoration createHeadFootGrid() {
+        public RvItemDecoration createHeadFootGrid() {
             HFGridDecoration decoration = new HFGridDecoration(context);
             decoration.mBgColoerId = bgColorId;
             decoration.mWidthDp = widthDp;
@@ -142,7 +165,7 @@ public abstract class ItemDecoration extends Y_DividerItemDecoration {
          * @return
          */
         //todo:有待完善...
-        public ItemDecoration createMultipleGrid() {
+        public RvItemDecoration createMultipleGrid() {
             MultipleGridDecoration divider = new MultipleGridDecoration(context);
             divider.mBgColoerId = bgColorId;
             divider.mWidthDp = widthDp;
@@ -152,4 +175,5 @@ public abstract class ItemDecoration extends Y_DividerItemDecoration {
         }
 
     }
+
 }

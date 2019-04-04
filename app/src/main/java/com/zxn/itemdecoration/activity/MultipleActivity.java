@@ -10,9 +10,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.zxn.divider.GridDivider;
-import com.zxn.divider.ItemDecoration;
-import com.zxn.divider.ItemDivider;
+import com.zxn.divider.RvItemDecoration;
 import com.zxn.itemdecoration.R;
 import com.zxn.itemdecoration.adapter.MultipleAdapter;
 import com.zxn.itemdecoration.entity.ResultEntity;
@@ -64,7 +62,7 @@ public class MultipleActivity extends AppCompatActivity {
         rvSkills.setLayoutManager(layoutManager);
         adapter = new MultipleAdapter();
         rvSkills.setAdapter(adapter);
-        ItemDecoration divider = new ItemDecoration.Builder(this)
+        RvItemDecoration divider = new RvItemDecoration.Builder(this)
                 .bgColor(R.color.c_ffffff)
                 .spanCount(layoutManager.getSpanCount())
                 .widthDp(5)

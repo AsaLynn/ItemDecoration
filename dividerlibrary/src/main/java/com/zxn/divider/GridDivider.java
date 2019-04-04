@@ -7,7 +7,7 @@ import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
 
 /**
  * RecyclerView均匀分隔的格子列表分割线.
- * ItemDecoration,GridDecoration
+ * RvItemDecoration,GridDecoration
  * {@link GridDecoration}
  * Created by zxn on 2019/1/27.
  */
