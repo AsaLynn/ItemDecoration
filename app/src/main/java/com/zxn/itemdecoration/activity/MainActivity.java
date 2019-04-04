@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_grid_line:
                 startActivity(new Intent(this, MultipleActivity.class));
                 break;
+            case R.id.btn_grid_head_line:
+                //startActivity(new Intent(this, MultipleActivity.class));
+                break;
         }
     }
 }

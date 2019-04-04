@@ -25,4 +25,10 @@
         android:layout_height="wrap_content"
         android:text="@string/app_grid_line" />
 
+    <Button
+        android:id="@+id/btn_grid_head_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_grid_head_line" />
+
 </LinearLayout>
