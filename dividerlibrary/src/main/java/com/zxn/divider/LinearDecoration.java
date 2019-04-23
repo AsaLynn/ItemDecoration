@@ -17,8 +17,9 @@ import java.lang.annotation.RetentionPolicy;
  */
 public class LinearDecoration extends RvItemDecoration {
     private int mBgTransparent;
-    public static final int HORIZONTAL = 0;
-    public static final int VERTICAL = 1;
+    public static final int HORIZONTAL = 0;//适用于横向滑动的列表
+    public static final int VERTICAL = 1;//适用于纵向滑动的列表
+
 
 
     @IntDef({HORIZONTAL, VERTICAL})
@@ -37,7 +38,7 @@ public class LinearDecoration extends RvItemDecoration {
     @Override
     public Y_Divider getDivider(int itemPosition) {
 
-        if (mOrientation == HORIZONTAL) {
+        if (mOrientation == VERTICAL) {
             mBgColor = mContext.getResources()
                     .getColor(mBgColoerId);
             mBgTransparent = mContext.getResources()
@@ -45,8 +46,18 @@ public class LinearDecoration extends RvItemDecoration {
             //int lastItemPosition = mRecyclerView.getAdapter().getItemCount() - 1;
             int lastItemPosition = getItemCount();
             int bgColor = (itemPosition == lastItemPosition && !mShowLastDiveder) ? mBgTransparent : mBgColor;
-            return new Y_DividerBuilder()
-                    .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
+            if (itemPosition == 0 && mShowFirstDiveder) {
+                return new Y_DividerBuilder()
+                        .setLeftSideLine(mShowLeft, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                        .setTopSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                        .setRightSideLine(mShowRight, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                        .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
+            } else {
+                return new Y_DividerBuilder()
+                        .setLeftSideLine(mShowLeft, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                        .setRightSideLine(mShowRight, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                        .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
+            }
         } else {
             int lastItemPosition = mRecyclerView.getLayoutManager().getItemCount() - 1;
             float widthDp

@@ -32,12 +32,17 @@ public class HorizontalItemDecorationAty extends AppCompatActivity {
 
         rv.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         //layoutManager.setOrientation(5);
         rv.setLayoutManager(layoutManager);
         rv.addItemDecoration(new LinearDecoration.Builder(this)
                 .bgColor(R.color.colorPrimaryDark)
                 .widthDp(20)
-                .setOrientation(LinearDecoration.HORIZONTAL)
+                .showLastDiveder(true)
+                .showFirstDivider(true)
+                .showLeft(true)
+                .showRight(true)
+                .setOrientation(LinearDecoration.VERTICAL)
                 .createLinear());
         MyBaseQuickAdapter adapter = new MyBaseQuickAdapter();
         rv.setAdapter(adapter);

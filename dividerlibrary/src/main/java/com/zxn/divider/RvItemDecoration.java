@@ -18,9 +18,8 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
     protected float mWidthDp = 1, mStartPaddingDp, mEndPaddingDp;
     protected Context mContext;
     protected int mSpanCount;
-    protected boolean mShowLastDiveder;
     protected int mBgColoerId;
-    protected boolean mShowFirstDiveder;
+    protected boolean mShowLeft, mShowFirstDiveder, mShowRight, mShowLastDiveder;
     protected RecyclerView mRecyclerView;
     protected int mHeadCount;
     protected int mFootCount;
@@ -51,7 +50,7 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
         private int bgColorId;
         private float widthDp = 1, startPaddingDp, endPaddingDp;
         private Context context;
-        private boolean showLastDiveder, showFirstDivider;
+        private boolean showLastDiveder, showFirstDivider, showLeft, showRight;
         private int spanCount;
         private int headCount;
         private int footCount;
@@ -60,6 +59,7 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
         public Builder(Context context) {
             this.context = context;
         }
+
 
         public Builder setOrientation(@LinearDecoration.OrientationMode int orientation) {
             if (orientation != this.orientation) {
@@ -103,20 +103,37 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
             return this;
         }
 
+        public RvItemDecoration.Builder showFirstDivider(boolean show) {
+            this.showFirstDivider = show;
+            return this;
+        }
+
+        public RvItemDecoration.Builder showLeft(boolean show) {
+            this.showLeft = show;
+            return this;
+        }
+
+        public RvItemDecoration.Builder showRight(boolean show) {
+            this.showRight = show;
+            return this;
+        }
+
         public RvItemDecoration.Builder spanCount(int spanCount) {
             this.spanCount = spanCount;
             return this;
         }
 
-        //LinearLayoutManager
         public RvItemDecoration createLinear() {
             LinearDecoration decoration = new LinearDecoration(context);
             decoration.mBgColoerId = bgColorId;
             decoration.mWidthDp = widthDp;
             decoration.mShowLastDiveder = showLastDiveder;
+            decoration.mShowFirstDiveder = showFirstDivider;
             decoration.mStartPaddingDp = startPaddingDp;
             decoration.mEndPaddingDp = endPaddingDp;
             decoration.mOrientation = orientation;
+            decoration.mShowLeft = showLeft;
+            decoration.mShowRight = showRight;
             return decoration;
         }
 
