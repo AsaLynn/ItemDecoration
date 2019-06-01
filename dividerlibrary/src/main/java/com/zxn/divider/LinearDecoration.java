@@ -29,17 +29,22 @@ public class LinearDecoration extends RvItemDecoration {
     protected LinearDecoration(Context context) {
         super(context);
         mContext = context;
-        mBgColor = context.getResources()
-                .getColor(R.color.c_ffffff);
+        if (mBgColoerId == 0) {
+            mBgColor = context.getResources()
+                    .getColor(R.color.c_ffffff);
+        } else {
+            mBgColor = mContext.getResources()
+                    .getColor(mBgColoerId);
+        }
         mWidthDp = 5;
     }
 
     @Override
     public Y_Divider getDivider(int itemPosition) {
 
+
         if (mOrientation == VERTICAL) {
-            mBgColor = mContext.getResources()
-                    .getColor(mBgColoerId);
+
             mBgTransparent = mContext.getResources()
                     .getColor(android.R.color.transparent);
             //int lastItemPosition = mRecyclerView.getAdapter().getItemCount() - 1;
