@@ -21,7 +21,6 @@ public class LinearDecoration extends RvItemDecoration {
     public static final int VERTICAL = 1;//适用于纵向滑动的列表
 
 
-
     @IntDef({HORIZONTAL, VERTICAL})
     @Retention(RetentionPolicy.SOURCE)
     public @interface OrientationMode {
@@ -46,10 +45,10 @@ public class LinearDecoration extends RvItemDecoration {
             //int lastItemPosition = mRecyclerView.getAdapter().getItemCount() - 1;
             int lastItemPosition = getItemCount();
             int bgColor = (itemPosition == lastItemPosition && !mShowLastDiveder) ? mBgTransparent : mBgColor;
-            if (itemPosition == 0 && mShowFirstDiveder) {
+            if (itemPosition == 0) {
                 return new Y_DividerBuilder()
                         .setLeftSideLine(mShowLeft, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
-                        .setTopSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                        .setTopSideLine(mShowFirstDiveder, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
                         .setRightSideLine(mShowRight, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
                         .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
             } else {
@@ -59,13 +58,20 @@ public class LinearDecoration extends RvItemDecoration {
                         .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
             }
         } else {
-            int lastItemPosition = mRecyclerView.getLayoutManager().getItemCount() - 1;
-            float widthDp
-                    = (lastItemPosition == itemPosition && !mShowLastDiveder)
-                    ? 0 : mWidthDp;
-            return new Y_DividerBuilder()
-                    .setRightSideLine(true, mBgColor, widthDp, mStartPaddingDp, mEndPaddingDp)
-                    .create();
+            if (itemPosition == 0) {
+                return new Y_DividerBuilder()
+                        .setRightSideLine(true, mBgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                        .setLeftSideLine(mShowFirstDiveder, mBgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                        .create();
+            } else if (itemPosition == getItemCount() - 1) {
+                return new Y_DividerBuilder()
+                        .setRightSideLine(mShowLastDiveder, mBgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                        .create();
+            } else {
+                return new Y_DividerBuilder()
+                        .setRightSideLine(true, mBgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                        .create();
+            }
         }
 
     }
