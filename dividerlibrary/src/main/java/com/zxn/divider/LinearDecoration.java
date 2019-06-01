@@ -29,19 +29,19 @@ public class LinearDecoration extends RvItemDecoration {
     protected LinearDecoration(Context context) {
         super(context);
         mContext = context;
-        if (mBgColoerId == 0) {
-            mBgColor = context.getResources()
-                    .getColor(R.color.c_ffffff);
-        } else {
-            mBgColor = mContext.getResources()
-                    .getColor(mBgColoerId);
-        }
+        mBgColor = context.getResources()
+                .getColor(R.color.c_ffffff);
+
+
         mWidthDp = 5;
     }
 
     @Override
     public Y_Divider getDivider(int itemPosition) {
-
+        if (mBgColoerId != 0) {
+            mBgColor = mContext.getResources()
+                    .getColor(mBgColoerId);
+        }
 
         if (mOrientation == VERTICAL) {
 
