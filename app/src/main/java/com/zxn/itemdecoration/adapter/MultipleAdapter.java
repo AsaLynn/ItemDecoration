@@ -6,7 +6,7 @@ import android.widget.CheckBox;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.zxn.itemdecoration.R;
-import com.zxn.itemdecoration.entity.SearchEntity;
+import com.zxn.itemdecoration.entity.TableInfo;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 /**
  * Created by zxn on 2019/1/27.
  */
-public class MultipleAdapter extends BaseQuickAdapter<SearchEntity, MultipleAdapter.ViewHolder> {
+public class MultipleAdapter extends BaseQuickAdapter<TableInfo, MultipleAdapter.ViewHolder> {
 
 
     public MultipleAdapter() {
@@ -22,8 +22,8 @@ public class MultipleAdapter extends BaseQuickAdapter<SearchEntity, MultipleAdap
     }
 
     @Override
-    protected void convert(ViewHolder helper, SearchEntity item) {
-        helper.itemSelectCb.setText(item.name);
+    protected void convert(ViewHolder helper, TableInfo item) {
+        helper.itemSelectCb.setText(item.tableName);
     }
 
     static class ViewHolder extends BaseViewHolder {

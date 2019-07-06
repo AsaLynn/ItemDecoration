@@ -13,8 +13,10 @@ import com.google.gson.reflect.TypeToken;
 import com.zxn.divider.RvItemDecoration;
 import com.zxn.itemdecoration.R;
 import com.zxn.itemdecoration.adapter.MultipleAdapter;
+import com.zxn.itemdecoration.entity.BasePageInfo;
 import com.zxn.itemdecoration.entity.ResultEntity;
 import com.zxn.itemdecoration.entity.SearchEntity;
+import com.zxn.itemdecoration.entity.TableInfo;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -38,6 +40,7 @@ public class MultipleActivity extends AppCompatActivity {
     RecyclerView rvSkills;
     private String mParam1;
     private MultipleAdapter adapter;
+    private String result = "{\"code\":\"SUCCESS\",\"msg\":\"查询成功\",\"result\":[{\"id\":480,\"appId\":\"EW_N6933871347\",\"merchantCode\":\"EW_N2420475438\",\"regionId\":134,\"tableName\":\"A010\",\"tableNum\":6,\"tableStatus\":0,\"createTime\":\"2019-07-05 13:37:13\",\"updateTime\":\"2019-07-05 13:37:13\"},{\"id\":479,\"appId\":\"EW_N6933871347\",\"merchantCode\":\"EW_N2420475438\",\"regionId\":134,\"tableName\":\"A009\",\"tableNum\":6,\"tableStatus\":0,\"createTime\":\"2019-07-05 13:37:13\",\"updateTime\":\"2019-07-05 13:37:13\"},{\"id\":478,\"appId\":\"EW_N6933871347\",\"merchantCode\":\"EW_N2420475438\",\"regionId\":134,\"tableName\":\"A008\",\"tableNum\":6,\"tableStatus\":0,\"createTime\":\"2019-07-05 13:37:13\",\"updateTime\":\"2019-07-05 13:37:13\"},{\"id\":477,\"appId\":\"EW_N6933871347\",\"merchantCode\":\"EW_N2420475438\",\"regionId\":134,\"tableName\":\"A007\",\"tableNum\":6,\"tableStatus\":0,\"createTime\":\"2019-07-05 13:37:13\",\"updateTime\":\"2019-07-05 13:37:13\"},{\"id\":476,\"appId\":\"EW_N6933871347\",\"merchantCode\":\"EW_N2420475438\",\"regionId\":134,\"tableName\":\"A006\",\"tableNum\":6,\"tableStatus\":0,\"createTime\":\"2019-07-05 13:37:13\",\"updateTime\":\"2019-07-05 13:37:13\"},{\"id\":475,\"appId\":\"EW_N6933871347\",\"merchantCode\":\"EW_N2420475438\",\"regionId\":134,\"tableName\":\"A005\",\"tableNum\":6,\"tableStatus\":0,\"createTime\":\"2019-07-05 13:37:13\",\"updateTime\":\"2019-07-05 13:37:13\"},{\"id\":474,\"appId\":\"EW_N6933871347\",\"merchantCode\":\"EW_N2420475438\",\"regionId\":134,\"tableName\":\"A004\",\"tableNum\":6,\"tableStatus\":0,\"createTime\":\"2019-07-05 13:37:13\",\"updateTime\":\"2019-07-05 13:37:13\"},{\"id\":473,\"appId\":\"EW_N6933871347\",\"merchantCode\":\"EW_N2420475438\",\"regionId\":134,\"tableName\":\"A003\",\"tableNum\":6,\"tableStatus\":0,\"createTime\":\"2019-07-05 13:37:13\",\"updateTime\":\"2019-07-05 13:37:13\"},{\"id\":472,\"appId\":\"EW_N6933871347\",\"merchantCode\":\"EW_N2420475438\",\"regionId\":134,\"tableName\":\"A002\",\"tableNum\":6,\"tableStatus\":0,\"createTime\":\"2019-07-05 13:37:13\",\"updateTime\":\"2019-07-05 13:37:13\"},{\"id\":471,\"appId\":\"EW_N6933871347\",\"merchantCode\":\"EW_N2420475438\",\"regionId\":134,\"tableName\":\"A001\",\"tableNum\":6,\"tableStatus\":0,\"createTime\":\"2019-07-05 13:37:13\",\"updateTime\":\"2019-07-05 13:37:13\"}]}";
 
     public static void jumpTo(Context context, String param1) {
         Intent intent = new Intent(context, MultipleActivity.class);
@@ -69,33 +72,42 @@ public class MultipleActivity extends AppCompatActivity {
                 .createGrid();
         rvSkills.addItemDecoration(divider);
 
-        OkHttpClient client = new OkHttpClient.Builder()
-                .build();
-        Request request = new Request.Builder()
-                .get()
-                .url("http://api.wdy330.com/guns-rest-0.0.1-SNAPSHOT/skills/list")
-                .build();
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
+//        http();
+//        String result = response.body().string();
+        Type type = new TypeToken<BasePageInfo<TableInfo>>() {
+        }.getType();
+        final BasePageInfo<TableInfo> entity = new Gson().fromJson(result, type);
+        adapter.setNewData(entity.result);
 
-            }
+    }
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String result = response.body().string();
-                Type type = new TypeToken<ResultEntity<List<SearchEntity>>>() {
-                }.getType();
-                final ResultEntity<List<SearchEntity>> entity = new Gson().fromJson(result, type);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        adapter.setNewData(entity.result);
-                    }
-                });
-
-            }
-        });
-
+    private void http() {
+//        OkHttpClient client = new OkHttpClient.Builder()
+//                .build();
+//        Request request = new Request.Builder()
+//                .get()
+//                .url("http://api.wdy330.com/guns-rest-0.0.1-SNAPSHOT/skills/list")
+//                .build();
+//        client.newCall(request).enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                String result = response.body().string();
+//                Type type = new TypeToken<ResultEntity<List<SearchEntity>>>() {
+//                }.getType();
+//                final ResultEntity<List<SearchEntity>> entity = new Gson().fromJson(result, type);
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        adapter.setNewData(entity.result);
+//                    }
+//                });
+//
+//            }
+//        });
     }
 }
