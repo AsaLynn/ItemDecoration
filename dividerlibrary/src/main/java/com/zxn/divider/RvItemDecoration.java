@@ -2,7 +2,6 @@ package com.zxn.divider;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -19,7 +18,7 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
     protected Context mContext;
     protected int mSpanCount;
     protected int mBgColoerId;
-    protected boolean mShowLeft, mShowFirstDiveder, mShowRight, mShowLastDiveder;
+    protected boolean mShowLeft, mShowFirstDiveder, mShowRight, mShowLastDiveder, mShowHeadDecoration;//
     protected RecyclerView mRecyclerView;
     protected int mHeadCount;
     protected int mFootCount;
@@ -50,7 +49,7 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
         private int bgColorId;
         private float widthDp = 1, startPaddingDp, endPaddingDp;
         private Context context;
-        private boolean showLastDiveder, showFirstDivider, showLeft, showRight;
+        private boolean showLastDiveder, showFirstDivider, showLeft, showRight,showHeadDecoration;
         private int spanCount;
         private int headCount;
         private int footCount;
@@ -118,6 +117,11 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
             return this;
         }
 
+        public RvItemDecoration.Builder showHeadDecoration(boolean show) {
+            this.showHeadDecoration = show;
+            return this;
+        }
+
         public RvItemDecoration.Builder spanCount(int spanCount) {
             this.spanCount = spanCount;
             return this;
@@ -134,6 +138,7 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
             decoration.mOrientation = orientation;
             decoration.mShowLeft = showLeft;
             decoration.mShowRight = showRight;
+            decoration.mShowHeadDecoration = showHeadDecoration;
             return decoration;
         }
 

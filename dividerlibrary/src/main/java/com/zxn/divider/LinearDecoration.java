@@ -2,7 +2,6 @@ package com.zxn.divider;
 
 import android.content.Context;
 import android.support.annotation.IntDef;
-import android.support.v7.widget.RecyclerView;
 
 import com.yanyusong.y_divideritemdecoration.Y_Divider;
 import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
@@ -51,11 +50,19 @@ public class LinearDecoration extends RvItemDecoration {
             int lastItemPosition = getItemCount();
             int bgColor = (itemPosition == lastItemPosition && !mShowLastDiveder) ? mBgTransparent : mBgColor;
             if (itemPosition == 0) {
-                return new Y_DividerBuilder()
-                        .setLeftSideLine(mShowLeft, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
-                        .setTopSideLine(mShowFirstDiveder, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
-                        .setRightSideLine(mShowRight, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
-                        .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
+                if (mShowHeadDecoration) {
+                    return new Y_DividerBuilder()
+                            .setLeftSideLine(mShowLeft, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                            .setTopSideLine(mShowFirstDiveder, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                            .setRightSideLine(mShowRight, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                            .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
+                } else {
+                    return new Y_DividerBuilder()
+                            //.setLeftSideLine(mShowLeft, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                            .setTopSideLine(mShowFirstDiveder, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                            //.setRightSideLine(mShowRight, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                            .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
+                }
             } else {
                 return new Y_DividerBuilder()
                         .setLeftSideLine(mShowLeft, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
