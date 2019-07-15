@@ -49,7 +49,7 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
         private int bgColorId;
         private float widthDp = 1, startPaddingDp, endPaddingDp;
         private Context context;
-        private boolean showLastDiveder, showFirstDivider, showLeft, showRight,showHeadDecoration;
+        private boolean showLastDiveder, showFirstDivider, showLeft, showRight, showHeadDecoration;
         private int spanCount;
         private int headCount;
         private int footCount;
@@ -138,6 +138,7 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
             decoration.mOrientation = orientation;
             decoration.mShowLeft = showLeft;
             decoration.mShowRight = showRight;
+            decoration.mHeadCount = headCount;
             decoration.mShowHeadDecoration = showHeadDecoration;
             return decoration;
         }

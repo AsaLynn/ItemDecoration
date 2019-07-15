@@ -46,21 +46,26 @@ public class LinearDecoration extends RvItemDecoration {
 
             mBgTransparent = mContext.getResources()
                     .getColor(android.R.color.transparent);
-            //int lastItemPosition = mRecyclerView.getAdapter().getItemCount() - 1;
             int lastItemPosition = getItemCount();
             int bgColor = (itemPosition == lastItemPosition && !mShowLastDiveder) ? mBgTransparent : mBgColor;
             if (itemPosition == 0) {
-                if (mShowHeadDecoration) {
+                if (mHeadCount == 1) {
+                    if (mShowHeadDecoration) {
+                        return new Y_DividerBuilder()
+                                .setLeftSideLine(mShowLeft, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                                .setTopSideLine(mShowFirstDiveder, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                                .setRightSideLine(mShowRight, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                                .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
+                    } else {
+                        return new Y_DividerBuilder()
+                                .setTopSideLine(mShowFirstDiveder, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
+                                .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
+                    }
+                } else {
                     return new Y_DividerBuilder()
                             .setLeftSideLine(mShowLeft, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
                             .setTopSideLine(mShowFirstDiveder, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
                             .setRightSideLine(mShowRight, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
-                            .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
-                } else {
-                    return new Y_DividerBuilder()
-                            //.setLeftSideLine(mShowLeft, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
-                            .setTopSideLine(mShowFirstDiveder, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
-                            //.setRightSideLine(mShowRight, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp)
                             .setBottomSideLine(true, bgColor, mWidthDp, mStartPaddingDp, mEndPaddingDp).create();
                 }
             } else {
