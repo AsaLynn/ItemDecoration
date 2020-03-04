@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.GridFootActivity"></activity>
+        <activity android:name=".activity.GridThreeActivity"></activity>
+        <activity android:name=".activity.GridFootActivity" />
         <activity android:name=".activity.GridHeadFootActivity" />
         <activity android:name=".activity.GridHeadActivity" />
         <activity android:name=".activity.MainActivity">
@@ -28,6 +29,9 @@
         <activity android:name=".activity.VerticalItemDecorationAty" />
         <activity android:name=".activity.GridItemDecorationAty" />
         <activity android:name=".activity.MultipleActivity" />
+        <activity
+            android:name=".activity.GridLayoutManagerActivity"
+            android:screenOrientation="fullSensor" />
     </application>
 
 </manifest>

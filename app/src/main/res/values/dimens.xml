@@ -5,4 +5,5 @@
     <dimen name="dp_5">5dp</dimen>
     <dimen name="dp_210">210dp</dimen>
     <dimen name="px28">28dp</dimen>
+    <dimen name="sp_15" />
 </resources>

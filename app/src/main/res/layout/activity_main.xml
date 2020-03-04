@@ -30,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_grid_head_line" />
+
     <Button
         android:id="@+id/btn_grid_foot_line"
         android:layout_width="match_parent"
@@ -41,5 +42,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_grid_head_foot_line" />
+
+    <Button
+        android:id="@+id/btn_grid_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="普通格子列表分隔线" />
+
+    <Button
+        android:id="@+id/btn_grid_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="格子列表3列" />
 
 </LinearLayout>

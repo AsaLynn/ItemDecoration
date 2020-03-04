@@ -1,1 +1,1 @@
-include ':app', ':dividerlibrary'
+include ':app', ':dividerlibrary', ':appDecoration', ':y_divideritemdecoration', ':spacesItemDecoration'

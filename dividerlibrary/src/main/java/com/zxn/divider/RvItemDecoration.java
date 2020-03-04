@@ -2,7 +2,9 @@ package com.zxn.divider;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 
 import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
@@ -143,6 +145,11 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
             return decoration;
         }
 
+        /**
+         * 创建间隙均匀的格子列表.
+         *
+         * @return
+         */
         public RvItemDecoration createGrid() {
             GridDecoration decoration = new GridDecoration(context);
             decoration.mBgColoerId = bgColorId;
@@ -195,6 +202,19 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
             divider.mSpanCount = spanCount;
             divider.mHeadCount = headCount;
             return divider;
+        }
+
+        /**
+         * 创建只有中间间隙的格子列表,无头无脚,不好用.
+         *
+         * @return
+         */
+        public RvItemDecoration createCenterGrid() {
+            CenterGridDecoration decoration = new CenterGridDecoration(context);
+            decoration.mBgColoerId = bgColorId;
+            decoration.mWidthDp = widthDp;
+            decoration.mSpanCount = spanCount;
+            return decoration;
         }
 
     }

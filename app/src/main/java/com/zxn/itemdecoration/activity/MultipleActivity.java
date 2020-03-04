@@ -3,9 +3,9 @@ package com.zxn.itemdecoration.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.google.gson.Gson;
@@ -14,21 +14,12 @@ import com.zxn.divider.RvItemDecoration;
 import com.zxn.itemdecoration.R;
 import com.zxn.itemdecoration.adapter.MultipleAdapter;
 import com.zxn.itemdecoration.entity.BasePageInfo;
-import com.zxn.itemdecoration.entity.ResultEntity;
-import com.zxn.itemdecoration.entity.SearchEntity;
 import com.zxn.itemdecoration.entity.TableInfo;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 /**
  * Created by zxn on 2019-1-27 10:17:33.

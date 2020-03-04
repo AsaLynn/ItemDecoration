@@ -1,7 +1,7 @@
 package com.zxn.divider;
 
 import android.content.Context;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 import com.yanyusong.y_divideritemdecoration.Y_Divider;
 import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
