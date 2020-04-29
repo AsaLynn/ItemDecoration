@@ -187,10 +187,8 @@ public abstract class Y_DividerItemDecoration extends RecyclerView.ItemDecoratio
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-
         //outRect 看源码可知这里只是把Rect类型的outRect作为一个封装了left,right,top,bottom的数据结构,
         //作为传递left,right,top,bottom的偏移值来用的
-
         int itemPosition = ((RecyclerView.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
 
         Y_Divider divider = getDivider(itemPosition);
@@ -210,8 +208,6 @@ public abstract class Y_DividerItemDecoration extends RecyclerView.ItemDecoratio
 
     public abstract @Nullable
     Y_Divider getDivider(int itemPosition);
-
-
 }
 
 

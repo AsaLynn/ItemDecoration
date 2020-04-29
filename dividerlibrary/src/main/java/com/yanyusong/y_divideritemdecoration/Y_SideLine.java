@@ -1,7 +1,5 @@
 package com.yanyusong.y_divideritemdecoration;
 
-//import androidx.annotation.ColorInt;
-
 import androidx.annotation.ColorInt;
 
 /**

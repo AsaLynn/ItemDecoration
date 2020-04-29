@@ -148,7 +148,7 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
         /**
          * 创建间隙均匀的格子列表,内部和外部都分割.
          *
-         * @return
+         * @return RvItemDecoration
          */
         public RvItemDecoration createGrid() {
             GridDecoration decoration = new GridDecoration(context);
@@ -192,7 +192,7 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
         /**
          * 带头视图的grid分割线.MultipleGridDecoration
          *
-         * @return
+         * @return RvItemDecoration
          */
         //todo:有待完善...
         public RvItemDecoration createMultipleGrid() {
@@ -207,7 +207,7 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
         /**
          * 创建只有中间间隙的格子列表,无头无脚,不好用.
          *
-         * @return
+         * @return RvItemDecoration
          */
         public RvItemDecoration createCenterGrid() {
             CenterGridDecoration decoration = new CenterGridDecoration(context);
