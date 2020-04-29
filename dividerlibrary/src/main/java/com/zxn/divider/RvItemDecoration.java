@@ -146,7 +146,7 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
         }
 
         /**
-         * 创建间隙均匀的格子列表.
+         * 创建间隙均匀的格子列表,内部和外部都分割.
          *
          * @return
          */

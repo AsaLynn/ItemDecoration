@@ -1,4 +1,4 @@
-package com.zxn.itemdecoration.activity;
+package com.yanyusong.divideritemdecoration;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,18 +7,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-//import com.yanyusong.divideritemdecoration.y_recycleradapter.GeneralRecyclerViewHolder;
-//import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_ItemEntityList;
-//import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
-//import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_OnBind;
+
+import com.yanyusong.divideritemdecoration.y_recycleradapter.GeneralRecyclerViewHolder;
+import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_ItemEntityList;
+import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
+import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_OnBind;
 import com.yanyusong.y_divideritemdecoration.Y_Divider;
 import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
 import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 import com.zxn.itemdecoration.R;
-import com.zxn.itemdecoration.y_recycleradapter.GeneralRecyclerViewHolder;
-import com.zxn.itemdecoration.y_recycleradapter.Y_ItemEntityList;
-import com.zxn.itemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
-import com.zxn.itemdecoration.y_recycleradapter.Y_OnBind;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,9 +49,10 @@ public class GridLayoutManagerActivity extends AppCompatActivity {
                         holder.setText(R.id.textView, (String) itemData);
                     }
                 });
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);//
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);//3
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(new Y_MultiRecyclerAdapter(this, itemEntityList));
+
 
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
 

@@ -1,4 +1,4 @@
-package com.zxn.itemdecoration.activity;
+package com.yanyusong.divideritemdecoration;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,18 +7,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-//import com.yanyusong.divideritemdecoration.y_recycleradapter.GeneralRecyclerViewHolder;
-//import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_ItemEntityList;
-//import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
-//import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_OnBind;
+
+import com.yanyusong.divideritemdecoration.y_recycleradapter.GeneralRecyclerViewHolder;
+import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_ItemEntityList;
+import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
+import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_OnBind;
 import com.yanyusong.y_divideritemdecoration.Y_Divider;
 import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
 import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 import com.zxn.itemdecoration.R;
-import com.zxn.itemdecoration.y_recycleradapter.GeneralRecyclerViewHolder;
-import com.zxn.itemdecoration.y_recycleradapter.Y_ItemEntityList;
-import com.zxn.itemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
-import com.zxn.itemdecoration.y_recycleradapter.Y_OnBind;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +25,7 @@ import java.util.List;
  * Created by mac on 2017/4/6.
  */
 
-public class GridLayoutManagerActivity extends AppCompatActivity {
+public class GridLayoutManager2Activity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
@@ -52,16 +49,17 @@ public class GridLayoutManagerActivity extends AppCompatActivity {
                         holder.setText(R.id.textView, (String) itemData);
                     }
                 });
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);//
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(new Y_MultiRecyclerAdapter(this, itemEntityList));
 
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
-
-
     }
 
-
+    /**
+     * 大分割线的解决方案是，将中间分割线的宽度平均分配到左右两个分割线上，
+     * 这样item的宽度就一样了
+     */
     private class DividerItemDecoration extends Y_DividerItemDecoration {
 
         private DividerItemDecoration(Context context) {
@@ -70,20 +68,22 @@ public class GridLayoutManagerActivity extends AppCompatActivity {
 
         @Override
         public Y_Divider getDivider(int itemPosition) {
+
             Y_Divider divider = null;
-            switch (itemPosition % 3) {
+
+            switch (itemPosition % 2) {
                 case 0:
-                case 1:
-                    //每一行第一个和第二个显示rignt和bottom
+                    //每一行第一个显示rignt和bottom
                     divider = new Y_DividerBuilder()
-                            .setRightSideLine(true, 0xff666666, 6, 0, 0)
-                            .setBottomSideLine(true, 0xff666666, 6, 0, 0)
+                            .setRightSideLine(true, 0xff666666, 10, 0, 0)
+                            .setBottomSideLine(true, 0xff666666, 20, 0, 0)
                             .create();
                     break;
-                case 2:
-                    //最后一个只显示bottom
+                case 1:
+                    //第二个显示Left和bottom
                     divider = new Y_DividerBuilder()
-                            .setBottomSideLine(true, 0xff666666, 6, 0, 0)
+                            .setLeftSideLine(true, 0xff666666, 10, 0, 0)
+                            .setBottomSideLine(true, 0xff666666, 20, 0, 0)
                             .create();
                     break;
                 default:

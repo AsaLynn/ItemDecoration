@@ -20,6 +20,12 @@
         android:text="@string/app_vertical_line" />
 
     <Button
+        android:id="@+id/btn_grid_inside"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="格子内部均匀分割线" />
+
+    <Button
         android:id="@+id/btn_grid_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,10 +55,6 @@
         android:layout_height="wrap_content"
         android:text="普通格子列表分隔线" />
 
-    <Button
-        android:id="@+id/btn_grid_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="格子列表3列" />
+
 
 </LinearLayout>

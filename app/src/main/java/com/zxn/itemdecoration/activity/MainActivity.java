@@ -1,5 +1,6 @@
 package com.zxn.itemdecoration.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -17,6 +18,11 @@ import butterknife.OnClick;
  */
 public class MainActivity extends AppCompatActivity {
 
+    public static void jumpTo(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,15 +36,14 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_grid_head_foot_line,
             R.id.btn_grid_foot_line,
             R.id.btn_grid_normal,
-            R.id.btn_grid_1,
+            R.id.btn_grid_inside,
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.btn_grid_1:
-                startActivity(new Intent(MainActivity.this, GridThreeActivity.class));
+            case R.id.btn_grid_inside:
+                startActivity(new Intent(MainActivity.this, GridInsideActivity.class));
                 break;
             case R.id.btn_grid_normal:
-                //startActivity(new Intent(this, HorizontalItemDecorationAty.class));
                 startActivity(new Intent(MainActivity.this, GridLayoutManagerActivity.class));
                 break;
             case R.id.btn_horizontal_line:

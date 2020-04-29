@@ -11,10 +11,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/appDecoration" />
             <option value="$PROJECT_DIR$/dividerlibrary" />
             <option value="$PROJECT_DIR$/spacesItemDecoration" />
-            <option value="$PROJECT_DIR$/y_divideritemdecoration" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

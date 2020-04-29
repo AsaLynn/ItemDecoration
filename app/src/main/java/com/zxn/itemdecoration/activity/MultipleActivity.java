@@ -52,7 +52,7 @@ public class MultipleActivity extends AppCompatActivity {
         mParam1 = getIntent().getStringExtra(ARG_PARAM1);
 
         rvSkills.setHasFixedSize(true);
-        GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         rvSkills.setLayoutManager(layoutManager);
         adapter = new MultipleAdapter();
         rvSkills.setAdapter(adapter);
