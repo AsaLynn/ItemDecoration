@@ -18,7 +18,7 @@ RecyclerView列表使用分割线.
 版本1.0.0
 ```
 //修复bug.
-implementation 'com.zxn.divider:dividerlibrary:1.1.4'
+implementation 'com.zxn.divider:dividerlibrary:1.1.6'
 implementation 'com.zxn.divider:dividerlibrary:1.1.3'
 implementation 'com.zxn.divider:dividerlibrary:1.0.8'
 ```
