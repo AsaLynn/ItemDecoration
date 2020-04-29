@@ -28,7 +28,11 @@ public class CenterGridDecoration extends RvItemDecoration {
         //计算行数,最后一行不展示底部
         int complementCount = getItemCount() % mSpanCount;
         //行数
+        if (getItemCount() <= mSpanCount){
+            return true;
+        }
         int lineCount = getItemCount() / mSpanCount + (complementCount == 0 ? complementCount : 1);
+
         //根据位置,判断处于第几行.
         //1:--->0,1 (0 / 2 + 1)
         //2:--->2,3 (2 / 2 + 1)
@@ -186,7 +190,7 @@ public class CenterGridDecoration extends RvItemDecoration {
                             .setBottomSideLine(true, mBgColor, mWidthDp, 0, 0)
                             .create();
                 }
-            }else if (itemPosition % mSpanCount == 2) {//第2列
+            } else if (itemPosition % mSpanCount == 2) {//第2列
                 if (isLastLine(itemPosition)) {
                     return new Y_DividerBuilder()
                             .setLeftSideLine(false, mBgColor, mWidthDp, 0, 0)

@@ -51,7 +51,7 @@ public class GridInsideActivity extends AppCompatActivity {
         rv.setAdapter(mAdapter);
 
         ArrayList<BaseInfo> data = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 3; i++) {
             BaseInfo baseInfo = new BaseInfo();
             data.add(baseInfo);
         }
