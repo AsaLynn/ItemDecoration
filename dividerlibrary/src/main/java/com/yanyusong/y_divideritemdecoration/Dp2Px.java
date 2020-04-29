@@ -19,12 +19,11 @@ public class Dp2Px {
      *
      * @param context
      * @param dpVal
-     * @return
+     * @return int值得.
      */
     public static int convert(Context context, float dpVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 dpVal, context.getResources().getDisplayMetrics());
     }
-
 
 }

@@ -17,7 +17,7 @@ RecyclerView列表使用分割线.
 # 添加依赖
 版本1.0.0
 ```
-implementation 'com.zxn.divider:dividerlibrary:1.1.2'
+implementation 'com.zxn.divider:dividerlibrary:1.1.3'
 implementation 'com.zxn.divider:dividerlibrary:1.0.8'
 ```
 
@@ -45,4 +45,16 @@ ItemDivider divider = new ItemDivider.Builder(this)
     .spanCount(layoutManager.getSpanCount())
     .widthDp(5)
     .createGrid();
+```
+
+## 3纵横交叉内部均匀分割,支持列数(1,2,3,4,)
+```
+GridLayoutManager manager = new GridLayoutManager(mContext, 4);
+rv.setLayoutManager(manager);
+rv.setHasFixedSize(true);
+rv.addItemDecoration(new RvItemDecoration.Builder(mContext)
+        .bgColor(R.color.c_ffffff)
+        .widthDp(10f)
+        .spanCount(manager.getSpanCount())
+        .createCenterGrid());
 ```
