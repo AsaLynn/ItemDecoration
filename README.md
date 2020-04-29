@@ -38,7 +38,7 @@ rv.addItemDecoration(new ItemDivider.Builder(this)
 	.createVertical());
 ```
 
-## 3纵横交叉
+## 3纵横交叉内外全部均匀分割,支持列数(x)
 ```
 ItemDivider divider = new ItemDivider.Builder(this)
     .bgColor(R.color.c_ffffff)
@@ -47,7 +47,8 @@ ItemDivider divider = new ItemDivider.Builder(this)
     .createGrid();
 ```
 
-## 3纵横交叉内部均匀分割,支持列数(1,2,3,4,)
+
+## 4纵横交叉内部均匀分割,支持列数(1,2,3,4,)
 ```
 GridLayoutManager manager = new GridLayoutManager(mContext, 4);
 rv.setLayoutManager(manager);
