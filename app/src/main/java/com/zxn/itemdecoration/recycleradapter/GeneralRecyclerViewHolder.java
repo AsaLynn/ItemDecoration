@@ -1,4 +1,4 @@
-package com.zxn.itemdecoration.y_recycleradapter;
+package com.zxn.itemdecoration.recycleradapter;
 
 //import androidx.recyclerview.widget.RecyclerView;
 import android.util.SparseArray;

@@ -15,10 +15,10 @@ import com.yanyusong.y_divideritemdecoration.Y_Divider;
 import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
 import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 import com.zxn.itemdecoration.R;
-import com.zxn.itemdecoration.y_recycleradapter.GeneralRecyclerViewHolder;
-import com.zxn.itemdecoration.y_recycleradapter.Y_ItemEntityList;
-import com.zxn.itemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
-import com.zxn.itemdecoration.y_recycleradapter.Y_OnBind;
+import com.zxn.itemdecoration.recycleradapter.GeneralRecyclerViewHolder;
+import com.zxn.itemdecoration.recycleradapter.Y_ItemEntityList;
+import com.zxn.itemdecoration.recycleradapter.Y_MultiRecyclerAdapter;
+import com.zxn.itemdecoration.recycleradapter.Y_OnBind;
 
 import java.util.ArrayList;
 import java.util.List;

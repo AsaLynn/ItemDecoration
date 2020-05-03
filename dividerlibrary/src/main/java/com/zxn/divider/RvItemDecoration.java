@@ -36,8 +36,8 @@ public abstract class RvItemDecoration extends Y_DividerItemDecoration {
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-        super.getItemOffsets(outRect, view, parent, state);
         mRecyclerView = parent;
+        super.getItemOffsets(outRect, view, parent, state);
     }
 
     protected int getItemCount() {

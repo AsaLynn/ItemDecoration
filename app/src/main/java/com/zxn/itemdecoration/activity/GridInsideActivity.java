@@ -39,7 +39,7 @@ public class GridInsideActivity extends AppCompatActivity {
     }
 
     private void onInitRecyclerView() {
-        GridLayoutManager manager = new GridLayoutManager(mContext, 4);
+        GridLayoutManager manager = new GridLayoutManager(mContext, 2);
         rv.setLayoutManager(manager);
         rv.setHasFixedSize(true);
         rv.addItemDecoration(new RvItemDecoration.Builder(mContext)
@@ -51,7 +51,7 @@ public class GridInsideActivity extends AppCompatActivity {
         rv.setAdapter(mAdapter);
 
         ArrayList<BaseInfo> data = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             BaseInfo baseInfo = new BaseInfo();
             data.add(baseInfo);
         }

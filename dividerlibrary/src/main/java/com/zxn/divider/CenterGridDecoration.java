@@ -25,6 +25,9 @@ public class CenterGridDecoration extends RvItemDecoration {
      * @return true:最后一行.
      */
     private boolean isLastLine(int itemPosition) {
+        if (getItemCount() == 0){
+            return false;
+        }
         //计算行数,最后一行不展示底部
         int complementCount = getItemCount() % mSpanCount;
         //行数
