@@ -17,11 +17,7 @@ RecyclerView列表使用分割线.
 # 添加依赖
 版本1.0.0
 ```
-//修复bug.
-implementation 'com.zxn.divider:dividerlibrary:1.1.7'
-implementation 'com.zxn.divider:dividerlibrary:1.1.6'
-implementation 'com.zxn.divider:dividerlibrary:1.1.3'
-implementation 'com.zxn.divider:dividerlibrary:1.0.8'
+implementation 'com.zxn.divider:dividerlibrary:1.1.8'
 ```
 
 # 简单方式
@@ -61,4 +57,12 @@ rv.addItemDecoration(new RvItemDecoration.Builder(mContext)
         .widthDp(10f)
         .spanCount(manager.getSpanCount())
         .createCenterGrid());
+```
+
+##  打标签:		
+
+```   
+    git tag -a 1.1.8 -m '完善'
+	git push origin 1.1.8
+	git tag
 ```
